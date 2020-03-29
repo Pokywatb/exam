@@ -42,4 +42,7 @@ public class FarmAnimal extends Animal implements CanRun, CanHeal {
     public void heal() {
         health += 1;
     }
+
+
+
 }

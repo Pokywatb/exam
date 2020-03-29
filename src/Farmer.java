@@ -11,34 +11,41 @@ public class Farmer {
     }
 
 
-    public void collectRes(FarmAnimal[] farmanimals) {
-        for (FarmAnimal animal : farmanimals) {
-            if (animal instanceof CanGiveResources) {
+    public void collectRes(FarmAnimal[] fArmanimals) {
+        for (FarmAnimal animal : fArmanimals) {
+            if (animal.onFarm = true) {
+            } else if (animal instanceof CanGiveResources) {
                 resources += animal.getResPerCycle();
 
-            } else {
-                resources += animal.getWeight();
-                animal = null;
-                break;
             }
         }
     }
 
-    public void feed(FarmAnimal animal){
-        while (animal.getHealth() < animal.getInitialHealth()){
+    public void feed(FarmAnimal animal) {
+        while (animal.getHealth() < animal.getInitialHealth()) {
             animal.heal();
             System.out.println("животное откормлено");
         }
     }
 
 
-    public void kickOut(WildAnimal[] wAnimal, FarmAnimal[] fAnimal){
-        if (Math.random()*7 > 3){
-            System.out.println("");
-        }
-        else {
-            W
+    public void kickOut(WildAnimal wildAnimal, FarmAnimal fAnimal, WildAnimal[] animal1, FarmAnimal[] animal2) {
+        wildAnimal = animal1[(int) (Math.random() * animal1.length)];
+        fAnimal = animal2[(int) (Math.random() * animal2.length)];
+        if ((Math.random() * 7 > 3) && (wildAnimal.inForest = true) && (fAnimal.onFarm = true)) {
+            wildAnimal.setKickCount(wildAnimal.getKickCount() + 1);
+            if (wildAnimal.getKickCount() > 2) {
+                wildAnimal.inForest = false;
+            }
+            System.out.println("Фермер прогнал животное");
+        } else {
+            fAnimal.run(wildAnimal);
         }
     }
+
+    public void spend() {
+        resources -= 2;
+    }
+}
 
 }
