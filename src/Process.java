@@ -30,7 +30,8 @@ public class Process {
         farm.addFarmAnimal(rabbit1);
         farm.addFarmAnimal(rabbit2);
 
-        farm.passDay();
+
+        farm.passDay();// понимаю в чем ошибка но не могу найти.
 
     }
 }

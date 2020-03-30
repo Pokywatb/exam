@@ -23,7 +23,6 @@ public class Farm {
     }
 
     public void passDay() {
-
         farmer.spend();
         if (farmer.getResources() < 1) {
             System.out.println("Game Over");
@@ -32,7 +31,7 @@ public class Farm {
             farmer.feed(farmAnimal);
             farmer.collectRes(farmanimals);
         }
-        System.out.println("");
+
     }
 
     public void addWildAnimal(WildAnimal wild) {

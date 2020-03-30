@@ -14,7 +14,7 @@ public class Farmer {
     public void collectRes(FarmAnimal[] fArmanimals) {
         for (FarmAnimal animal : fArmanimals) {
             int sum = 0;
-            if (animal.onFarm = true) {
+            if (animal.onFarm = true && animal != null) {
             } else if (animal instanceof CanGiveResources) {
                 resources += animal.getResPerCycle();
                 sum ++;
@@ -42,7 +42,7 @@ public class Farmer {
     public void kickOut(WildAnimal wildAnimal, FarmAnimal fAnimal, WildAnimal[] animal1, FarmAnimal[] animal2) {
         wildAnimal = animal1[(int) (Math.random() * animal1.length)];
         fAnimal = animal2[(int) (Math.random() * animal2.length)];
-        if ((Math.random() * 7 > 3) && (wildAnimal.inForest = true) && (fAnimal.onFarm = true) && (wildAnimal.inForest = true)) {
+        if ((Math.random() * 7 > 3) && (wildAnimal.inForest = true) && (fAnimal.onFarm = true) && (wildAnimal.inForest = true) && (wildAnimal != null) && (fAnimal != null)) {
             wildAnimal.setKickCount(wildAnimal.getKickCount() + 1);
             if (wildAnimal.getKickCount() > 2) {
                 wildAnimal.inForest = false;
