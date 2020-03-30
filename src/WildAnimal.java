@@ -1,6 +1,6 @@
 public class WildAnimal extends Animal{
 
-    private int strength;
+    private int strength = (int) (Math.random()*8) ;
     private int kickCount = 0;
     protected boolean inForest = true;
 

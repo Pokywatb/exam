@@ -1,8 +1,8 @@
 public class Animal {
 
     private String name;
-    private int weight;
-    private int speed;
+    private int weight = (int) (Math.random()*8);
+    private int speed = (int) (Math.random()*8);
 
     public String getName() {
         return name;

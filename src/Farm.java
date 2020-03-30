@@ -2,6 +2,9 @@ public class Farm {
 
     public FarmAnimal[] farmanimals = new FarmAnimal[10];
     public WildAnimal[] wildAnimals = new WildAnimal[3];
+    private Farmer farmer;
+    private FarmAnimal farmAnimal;
+    private WildAnimal wildAnimal;
 
     public FarmAnimal[] getFarmanimals() {
         return farmanimals;
@@ -19,7 +22,7 @@ public class Farm {
         this.wildAnimals = wildAnimals;
     }
 
-    public void passDay(FarmAnimal farmAnimal, WildAnimal wildAnimal, Farmer farmer) {
+    public void passDay() {
 
         farmer.spend();
         if (farmer.getResources() < 1) {
@@ -30,6 +33,22 @@ public class Farm {
             farmer.collectRes(farmanimals);
         }
         System.out.println("");
+    }
+
+    public void addWildAnimal(WildAnimal wild) {
+        for (int i = 0; i < wildAnimals.length; i++) {
+            if (wildAnimals[i] == null) {
+                wildAnimals[i] = wild;
+            }
+        }
+    }
+
+    public void addFarmAnimal(FarmAnimal farm) {
+        for (int i = 0; i < farmanimals.length; i++) {
+            if (farmanimals[i] == null) {
+                farmanimals[i] = farm;
+            }
+        }
     }
 }
 
